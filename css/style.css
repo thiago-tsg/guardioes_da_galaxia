@@ -252,8 +252,9 @@ main div button svg path{
         padding: 1.5rem;
     }
 
-    .navigation{
+    #navigation{
         width: 100%;
+        padding: 72px 10px 0 0;
     }
 
     main{
