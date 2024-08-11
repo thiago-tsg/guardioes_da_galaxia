@@ -253,8 +253,16 @@ main div button svg path{
     }
 
     #navigation{
+        padding: 72px 0 0 0;
+    }
+
+    #navigation.active{
         width: 100%;
-        padding: 72px 10px 0 0;
+    }
+
+    #navigation div{
+        background-color: red;
+        gap: 32px 0px;
     }
 
     main{
