@@ -1,0 +1,263 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    list-style: none;
+    text-decoration: none;
+    
+}
+  
+:root {
+    --text: #EDF1F7;
+  
+    --image-shadow: radial-gradient(100% 100% at 50% 1.43%, rgba(22, 21, 21, 0), rgba(22, 21, 21, 0.9) 80%);
+    --peter: linear-gradient(45deg, #e11010 25%, #ffa200 80%);
+    --gamora: linear-gradient(45deg, #6FE863 30%, #FF008D 85%);
+    --drax: linear-gradient(45deg, #fe0000 10%, #b495a4 70%);
+    --groot: linear-gradient(45deg, #1AEC38, #ff7c00 90%);
+    --mantis: linear-gradient(45deg, #fee800, #eb9125);
+    --rocket: linear-gradient(45deg, #B55D00 22%, #ffffff);
+}
+
+body{
+    overflow: hidden;
+    color: var(--text);
+    font-family: 'Star Guard Italic', sans-serif;
+}
+
+.background{
+    position: relative;
+    z-index: -1;
+}
+
+.background::before{
+    content: '';
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: var(--image-shadow);
+}
+
+#images{
+    width: 100%;
+    position: absolute;
+    transition: all .8s;
+}
+
+#images img{
+    display: block;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: top;
+}
+
+.app{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    padding: 48px 80px 80px;
+}
+
+/* HEADER */
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 8px;
+    z-index: 10;
+    border: 0;
+    background: transparent;
+}
+
+#menu:hover{
+    cursor: pointer;
+}
+
+#menu span{
+    height: 2px;
+    background: var(--text);
+    border-radius: 8px;
+    transition: all .4s;
+}
+
+#menu span:nth-child(1){
+    width: 32px;
+}
+
+#menu span:nth-child(2){
+    width: 40px;
+}
+
+#menu span:nth-child(3){
+    width: 24px;
+}
+
+#menu.active span:nth-child(2){
+    opacity: 0;
+    width: 0;
+}
+
+#menu.active span:nth-child(1){
+    width: 32px;
+    transform: rotate(-45deg) translate(-7px, 5px);
+}
+
+#menu.active span:nth-child(3){
+    width: 32px;
+    transform: rotate(45deg) translate(-8px, -7px);
+}
+
+/* MAIN */
+
+main{
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+    align-self: flex-end;
+    align-items: flex-end;
+}
+
+main div{
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+}
+
+main div button{
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 100%;
+    border: 1px solid var(--text);
+    transition: opacity .4s;
+    cursor: pointer;
+}
+
+main div button:disabled{
+    opacity: .4;
+}
+
+main div button svg path{
+    fill: var(--text);
+}
+
+#member_name{
+    font-size: 150px;
+    letter-spacing: 6px;
+    font-weight: 400;
+    color: transparent;
+    font-family: 'Star Guard Italic';
+    padding-right: 10px;
+}
+
+@font-face {
+    font-family: 'Star Guard Italic';
+    src: url('../star-guard-italic.ttf');
+    font-weight: normal;
+    font-display: swap;
+}
+
+#member_name.peter{
+    background: var(--peter);
+    -webkit-background-clip: text;
+}
+
+#member_name.gamora{
+    background: var(--gamora);
+    -webkit-background-clip: text;
+}
+
+#member_name.drax{
+    background: var(--drax);
+    -webkit-background-clip: text;
+}
+
+#member_name.mantis{
+    background: var(--mantis);
+    -webkit-background-clip: text;
+}
+
+#member_name.rocket{
+    background: var(--rocket);
+    -webkit-background-clip: text;
+}
+
+#member_name.groot{
+    background: var(--groot);
+    -webkit-background-clip: text;
+}
+
+#navigation{
+    position: fixed;
+    top: 0;
+    right: -600px;
+    width: 600px;
+    height: 100vh;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(10px);
+    padding: 72px 80px 0;
+    transition: all .4s;
+}
+
+#navigation.active{
+    right: 0;
+}
+
+#navigation strong{
+    font-size: 32px;
+}
+
+#navigation div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 40px;
+    margin-top: 1.5rem;
+}
+
+#navigation div button{
+    border: 0;
+    background: transparent;
+}
+
+#navigation div button img{
+    filter: grayscale(1);
+    opacity: .5;
+    transition: all .4s;
+}
+
+#navigation div button:hover img{
+    filter: grayscale(0);
+    opacity: 1;
+    transform: translateY(-10px);
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 762px) {
+    .app{
+        padding: 1.5rem;
+    }
+
+    main{
+        align-items: flex-start;
+        align-self: flex-start;
+    }
+
+    #member_name{
+        font-size: 5rem;
+    }
+}
